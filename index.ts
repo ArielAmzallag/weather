@@ -1,5 +1,7 @@
 import express, {NextFunction, Request, Response} from "express";
-import { WeatherController } from "./weatherController";
+import { WeatherController } from "./controllers/weatherController";
+
+import { errorHandler } from "./middlewares/errorHandlers";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -19,6 +21,7 @@ app.get("/weather/:city", async (req: Request, res: Response, next: NextFunction
   await weatherController.getWeather(req, res, next);
 })
 
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Le server est en cours d'execution sur le port ${PORT}`);

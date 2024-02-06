@@ -1,5 +1,6 @@
 import {NextFunction, Request, Response } from "express";
 import axios, {AxiosResponse} from "axios";
+import { WeatherError } from "../middlewares/errorHandlers";
 
 
 export class WeatherController {
@@ -18,11 +19,12 @@ export class WeatherController {
       );
       
      const data = response.data;
+     
      res.json(data);
-    }catch(error){
-      res.status(500)
-      .json({error : "Erreur"})
-    }
+
+    } catch (error) {
+      next(new WeatherError("Erreur lors de la récupération des données météo"));
+  }
   }
 }
   
