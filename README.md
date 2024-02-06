@@ -45,7 +45,7 @@ npm install
 4. Create a `.env` file in the root of your project and add your WeatherAPI key:
 
 ```env
-API_KEY=6e758133b845476e930181014241701
+API_KEY=8f7764f30c914759951151004240602
 ```
 
 5. Start the development server:

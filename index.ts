@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const API_KEY = "6e758133b845476e930181014241701";
+const API_KEY = "8f7764f30c914759951151004240602";
 const weatherController = new WeatherController(API_KEY);
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
