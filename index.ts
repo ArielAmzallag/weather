@@ -1,13 +1,12 @@
 import express, {NextFunction, Request, Response} from "express";
 import { WeatherController } from "./controllers/weatherController";
-
 import { errorHandler } from "./middlewares/errorHandlers";
+import { API_KEY } from "./constantes/config";
 
 import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const API_KEY = "8f7764f30c914759951151004240602";
 const weatherController = new WeatherController(API_KEY);
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
